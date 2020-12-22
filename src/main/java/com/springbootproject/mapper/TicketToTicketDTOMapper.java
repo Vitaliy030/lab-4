@@ -1,11 +1,15 @@
 package com.springbootproject.mapper;
 
+import com.springbootproject.dto.BaggageDTO;
 import com.springbootproject.dto.TicketDTO;
 import com.springbootproject.entity.Baggage;
 import com.springbootproject.entity.Ticket;
 import com.springbootproject.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class TicketToTicketDTOMapper {
@@ -44,9 +48,11 @@ public class TicketToTicketDTOMapper {
         ticketDTO.setUserFirstName(ticket.getUser().getFirstName());
         ticketDTO.setUserLastName(ticket.getUser().getLastName());
 
+        final List<BaggageDTO> baggageDTOList = new ArrayList<>();
         for (final Baggage baggage : ticket.getBaggages()) {
-            ticketDTO.getBaggages().add(baggageToBaggageDTOMapper.toDTO(baggage));
+            baggageDTOList.add(baggageToBaggageDTOMapper.toDTO(baggage));
         }
+        ticketDTO.setBaggages(baggageDTOList);
 
         ticketDTO.setPlaceOfDeparture(ticket.getPlaceOfDeparture());
         ticketDTO.setPlaceOfArrival(ticket.getPlaceOfArrival());

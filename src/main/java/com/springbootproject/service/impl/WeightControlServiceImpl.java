@@ -39,7 +39,7 @@ public class WeightControlServiceImpl implements WeightControlService {
             throw new ServiceException(400, "Baggage should have an id ");
         }
 
-        BaggageDTO baggageDTO = baggageMapper.toDTO(baggageRepository.getBaggageById(baggageId));
+        final BaggageDTO baggageDTO = baggageMapper.toDTO(baggageRepository.getBaggageById(baggageId));
 
         if(baggageDTO.getWeight() > MAX_WEIGHT) {
             return "Baggage weight is more than the maximum!";
@@ -54,8 +54,8 @@ public class WeightControlServiceImpl implements WeightControlService {
             throw new ServiceException(400, "Ticket should have an id ");
         }
 
-        TicketDTO ticketDTO = ticketMapper.toDTO(ticketRepository.getTicketById(ticketId));
-        List<String> results = new ArrayList<>();
+        final TicketDTO ticketDTO = ticketMapper.toDTO(ticketRepository.getTicketById(ticketId));
+        final List<String> results = new ArrayList<>();
 
         for (final BaggageDTO baggageDTO : ticketDTO.getBaggages()) {
             if(baggageDTO.getWeight() > MAX_WEIGHT) {
