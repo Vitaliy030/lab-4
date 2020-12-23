@@ -24,7 +24,7 @@ public class Ticket {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -32,7 +32,7 @@ public class Ticket {
         return flight;
     }
 
-    public void setFlight(String flight) {
+    public void setFlight(final String flight) {
         this.flight = flight;
     }
 
@@ -40,7 +40,7 @@ public class Ticket {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(final double price) {
         this.price = price;
     }
 
@@ -48,7 +48,7 @@ public class Ticket {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
@@ -56,7 +56,7 @@ public class Ticket {
         return baggages;
     }
 
-    public void setBaggages(List<Baggage> baggages) {
+    public void setBaggages(final List<Baggage> baggages) {
         this.baggages = baggages;
     }
 
@@ -64,7 +64,7 @@ public class Ticket {
         return placeOfDeparture;
     }
 
-    public void setPlaceOfDeparture(String placeOfDeparture) {
+    public void setPlaceOfDeparture(final String placeOfDeparture) {
         this.placeOfDeparture = placeOfDeparture;
     }
 
@@ -72,7 +72,7 @@ public class Ticket {
         return placeOfArrival;
     }
 
-    public void setPlaceOfArrival(String placeOfArrival) {
+    public void setPlaceOfArrival(final String placeOfArrival) {
         this.placeOfArrival = placeOfArrival;
     }
 
@@ -80,7 +80,7 @@ public class Ticket {
         return seat;
     }
 
-    public void setSeat(String seat) {
+    public void setSeat(final String seat) {
         this.seat = seat;
     }
 
@@ -88,7 +88,7 @@ public class Ticket {
         return takeoffTime;
     }
 
-    public void setTakeoffTime(LocalDateTime takeoffTime) {
+    public void setTakeoffTime(final LocalDateTime takeoffTime) {
         this.takeoffTime = takeoffTime;
     }
 
@@ -96,7 +96,7 @@ public class Ticket {
         return boardingTime;
     }
 
-    public void setBoardingTime(LocalDateTime boardingTime) {
+    public void setBoardingTime(final LocalDateTime boardingTime) {
         this.boardingTime = boardingTime;
     }
 
@@ -104,9 +104,9 @@ public class Ticket {
     public Ticket() {
     }
 
-    public Ticket(Long id, String flight, double price, User user, List<Baggage> baggages,
-                  String placeOfDeparture, String placeOfArrival, String seat,
-                  LocalDateTime takeoffTime, LocalDateTime boardingTime) {
+    public Ticket(final Long id, final String flight, final double price, final User user, final List<Baggage> baggages,
+                  final String placeOfDeparture, final String placeOfArrival, final String seat,
+                  final LocalDateTime takeoffTime, final LocalDateTime boardingTime) {
         this.id = id;
         this.flight = flight;
         this.price = price;

@@ -13,11 +13,4 @@ public class Sites {
     public void setItems(final List<Site> items) {
         this.items = items;
     }
-
-    @Override
-    public String toString() {
-        return "Sites{" +
-                "items=" + items +
-                '}';
-    }
 }

@@ -20,13 +20,4 @@ public class Site {
     public void setName(final String name) {
         this.name = name;
     }
-
-
-    @Override
-    public String toString() {
-        return "Site{" +
-                "site_url='" + site_url + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

@@ -20,13 +20,4 @@ public class SiteDTO {
     public void setName(final String name) {
         this.name = name;
     }
-
-
-    @Override
-    public String toString() {
-        return "SiteDTO{" +
-                "site_url='" + site_url + '\'' +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

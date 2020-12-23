@@ -13,12 +13,4 @@ public class SitesDTO {
     public void setItems(final List<SiteDTO> items) {
         this.items = items;
     }
-
-
-    @Override
-    public String toString() {
-        return "SitesDTO{" +
-                "items=" + items +
-                '}';
-    }
 }

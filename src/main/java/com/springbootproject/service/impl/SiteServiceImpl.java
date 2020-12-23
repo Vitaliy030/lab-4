@@ -19,8 +19,6 @@ public class SiteServiceImpl implements SiteService {
 
     @Override
     public SitesDTO getSites() {
-        System.out.println("dd");
-        //System.out.println(sitesMapper.toDTO(stackExchangeRepository.getSites()));
         return sitesMapper.toDTO(stackExchangeRepository.getSites());
     }
 }

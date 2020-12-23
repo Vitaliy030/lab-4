@@ -18,7 +18,7 @@ public class User {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(final Long id) {
         this.id = id;
     }
 
@@ -26,7 +26,7 @@ public class User {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(final String firstName) {
         this.firstName = firstName;
     }
 
@@ -34,7 +34,7 @@ public class User {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(final String lastName) {
         this.lastName = lastName;
     }
 
@@ -42,7 +42,7 @@ public class User {
         return birth;
     }
 
-    public void setBirth(LocalDate birth) {
+    public void setBirth(final LocalDate birth) {
         this.birth = birth;
     }
 
@@ -50,7 +50,7 @@ public class User {
         return tickets;
     }
 
-    public void setTickets(List<Ticket> tickets) {
+    public void setTickets(final List<Ticket> tickets) {
         this.tickets = tickets;
     }
 
@@ -58,7 +58,7 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String firstName, String lastName, LocalDate birth, List<Ticket> tickets) {
+    public User(final Long id, final String firstName, final String lastName, final LocalDate birth, final List<Ticket> tickets) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

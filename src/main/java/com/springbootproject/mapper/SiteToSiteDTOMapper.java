@@ -18,11 +18,9 @@ public class SiteToSiteDTOMapper {
     public SiteDTO toDTO(final Site site) {
         final SiteDTO siteDTO = new SiteDTO();
 
-        //System.out.println(site);
         siteDTO.setSite_url(site.getSite_url());
         siteDTO.setName(site.getName());
-        //System.out.println(siteDTO);
-        //System.out.println(site);
+
         return siteDTO;
     }
 }

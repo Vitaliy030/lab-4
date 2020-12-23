@@ -21,7 +21,6 @@ public class StackExchangeRepository {
         final String url = "https://api.stackexchange.com/2.2/sites?filter=!2--Yion.6iyFFudE8CzDu";
         try {
             final Sites response = restTemplate.getForObject(new URI(url), Sites.class);
-            //System.out.println(response);
             return response;
         } catch (final URISyntaxException e) {
             throw new RuntimeException();
