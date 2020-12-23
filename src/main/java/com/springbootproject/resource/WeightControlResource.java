@@ -19,7 +19,7 @@ public class WeightControlResource {
         return weightControlService.getBaggageControlById(id);
     }
 
-    @GetMapping("/control/baggages")
+    @GetMapping("/control/baggages/tickets/{id}")
     public List<String> getAllBaggagesControlByTicketId(final @PathVariable Long id) {
         return weightControlService.getAllBaggagesControlByTicketId(id);
     }

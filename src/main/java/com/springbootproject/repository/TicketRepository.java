@@ -87,4 +87,13 @@ public class TicketRepository {
         final User user = userRepository.getUserById(userId);
         return user.getTickets();
     }
+
+
+    public Ticket setTicketById(final Long id, final Ticket ticket) {
+        return  savedTickets.stream()
+                .filter(tic -> tic.getId().equals(id))
+                .findFirst()
+                .map(tic -> tic = ticket)
+                .orElseThrow(() -> new ServiceException(400, "Ticket with id: " + id + " not found "));
+    }
 }

@@ -30,6 +30,17 @@ public class TicketToTicketDTOMapper {
         ticket.setFlight(ticketDTO.getFlight());
         ticket.setPrice(ticketDTO.getPrice());
         ticket.setUser(user);
+
+        if(ticketDTO.getBaggages() == null) {
+            ticket.setBaggages(null);
+        } else {
+            final List<Baggage> baggageList = new ArrayList<>();
+            for (final BaggageDTO baggageDTO : ticketDTO.getBaggages()) {
+                baggageList.add(baggageToBaggageDTOMapper.toEntity(baggageDTO, user));
+            }
+            ticket.setBaggages(baggageList);
+        }
+
         ticket.setPlaceOfDeparture(ticketDTO.getPlaceOfDeparture());
         ticket.setPlaceOfArrival(ticketDTO.getPlaceOfArrival());
         ticket.setSeat(ticketDTO.getSeat());
@@ -48,11 +59,15 @@ public class TicketToTicketDTOMapper {
         ticketDTO.setUserFirstName(ticket.getUser().getFirstName());
         ticketDTO.setUserLastName(ticket.getUser().getLastName());
 
-        final List<BaggageDTO> baggageDTOList = new ArrayList<>();
-        for (final Baggage baggage : ticket.getBaggages()) {
-            baggageDTOList.add(baggageToBaggageDTOMapper.toDTO(baggage));
+        if(ticket.getBaggages() == null) {
+            ticketDTO.setBaggages(null);
+        } else {
+            final List<BaggageDTO> baggageDTOList = new ArrayList<>();
+            for (final Baggage baggage : ticket.getBaggages()) {
+                baggageDTOList.add(baggageToBaggageDTOMapper.toDTO(baggage));
+            }
+            ticketDTO.setBaggages(baggageDTOList);
         }
-        ticketDTO.setBaggages(baggageDTOList);
 
         ticketDTO.setPlaceOfDeparture(ticket.getPlaceOfDeparture());
         ticketDTO.setPlaceOfArrival(ticket.getPlaceOfArrival());

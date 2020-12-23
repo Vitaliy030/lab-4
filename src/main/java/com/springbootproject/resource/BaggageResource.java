@@ -29,10 +29,11 @@ public class BaggageResource {
         return baggageService.getBaggagesByTicketId(id);
     }
 
-    @PostMapping("/users/{id}/baggages")
+    @PostMapping("/users/{userId}/tickets/{ticketId}/baggages")
     public BaggageDTO createBaggage(final @RequestBody BaggageDTO baggageDTO,
-                                    final @PathVariable Long id) {
-        return baggageService.createBaggage(baggageDTO, id);
+                                    final @PathVariable Long userId,
+                                    final @PathVariable Long ticketId) {
+        return baggageService.createBaggage(baggageDTO, userId, ticketId);
     }
 
     @PutMapping("/users/{id}/baggages")

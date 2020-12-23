@@ -37,7 +37,7 @@ public class BaggageRepository {
         return savedBaggages;
     }
 
-    public Baggage createBaggage(final Baggage baggage) {
+    public Baggage createBaggage(final Baggage baggage, final Long ticketId) {
         if (baggage.getId() != null) {
             throw new ServiceException(400, "Baggage shouldn't have an id ");
         }
@@ -45,6 +45,19 @@ public class BaggageRepository {
         ++lastId;
         baggage.setId(lastId);
         savedBaggages.add(baggage);
+
+        final List<Baggage> baggageList = new ArrayList<>();
+        if(ticketRepository.getTicketById(ticketId).getBaggages() == null) {
+            baggageList.add(baggage);
+        } else {
+            baggageList.addAll(ticketRepository.getTicketById(ticketId).getBaggages());
+            baggageList.add(baggage);
+        }
+
+        final Ticket ticket = ticketRepository.getTicketById(ticketId);
+        ticket.setBaggages(baggageList);
+        ticketRepository.setTicketById(ticketId, ticket);
+
         return baggage;
     }
 

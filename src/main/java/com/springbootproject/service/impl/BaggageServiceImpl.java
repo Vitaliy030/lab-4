@@ -1,14 +1,17 @@
 package com.springbootproject.service.impl;
 
 import com.springbootproject.dto.BaggageDTO;
+import com.springbootproject.entity.Baggage;
 import com.springbootproject.exception.ServiceException;
 import com.springbootproject.mapper.BaggageToBaggageDTOMapper;
 import com.springbootproject.repository.BaggageRepository;
+import com.springbootproject.repository.TicketRepository;
 import com.springbootproject.repository.UserRepository;
 import com.springbootproject.service.BaggageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +27,9 @@ public class BaggageServiceImpl implements BaggageService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TicketRepository ticketRepository;
+
 
     @Override
     public BaggageDTO getBaggageById(final Long id) {
@@ -38,7 +44,7 @@ public class BaggageServiceImpl implements BaggageService {
     }
 
     @Override
-    public BaggageDTO createBaggage(final BaggageDTO baggageDTO, final Long userId) {
+    public BaggageDTO createBaggage(final BaggageDTO baggageDTO, final Long userId, final Long ticketId) {
         if(baggageDTO.getId() != null) {
             throw new ServiceException(400, "Baggage shouldn't have an id ");
         }
@@ -47,7 +53,11 @@ public class BaggageServiceImpl implements BaggageService {
             throw new ServiceException(400, "User should have an id ");
         }
 
-        return baggageMapper.toDTO(baggageRepository.createBaggage(baggageMapper.toEntity(baggageDTO, userRepository.getUserById(userId))));
+        if(ticketId == null) {
+            throw new ServiceException(400, "Ticket should have an id ");
+        }
+
+        return baggageMapper.toDTO(baggageRepository.createBaggage(baggageMapper.toEntity(baggageDTO, userRepository.getUserById(userId)), ticketId));
     }
 
     @Override
@@ -59,6 +69,8 @@ public class BaggageServiceImpl implements BaggageService {
         if(userId == null) {
             throw new ServiceException(400, "User should have an id ");
         }
+
+
 
         return baggageMapper.toDTO(baggageRepository.updateBaggage(baggageMapper.toEntity(baggageDTO, userRepository.getUserById(userId))));
     }

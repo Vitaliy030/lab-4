@@ -7,7 +7,7 @@ import java.util.List;
 public interface BaggageService {
     BaggageDTO getBaggageById(Long id);
     List<BaggageDTO> getAllBaggages();
-    BaggageDTO createBaggage(BaggageDTO baggageDTO, Long userId);
+    BaggageDTO createBaggage(BaggageDTO baggageDTO, Long userId, Long ticketId);
     BaggageDTO updateBaggage(BaggageDTO baggageDTO, Long userId);
     void deleteBaggageById(Long id);
     List<BaggageDTO> getBaggagesByTicketId(final Long ticketId);
