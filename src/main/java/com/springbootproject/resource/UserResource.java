@@ -5,6 +5,7 @@ import com.springbootproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -24,12 +25,12 @@ public class UserResource {
     }
 
     @PostMapping("/users")
-    public UserDTO createUser(final @RequestBody UserDTO userDTO) {
+    public UserDTO createUser(final @Valid @RequestBody UserDTO userDTO) {
         return userService.createUser(userDTO);
     }
 
     @PutMapping("/users")
-    public UserDTO getUserById(final @RequestBody UserDTO userDTO) {
+    public UserDTO getUserById(final @Valid @RequestBody UserDTO userDTO) {
         return userService.updateUser(userDTO);
     }
 

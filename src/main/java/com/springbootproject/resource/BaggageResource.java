@@ -5,6 +5,7 @@ import com.springbootproject.service.BaggageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,14 +31,14 @@ public class BaggageResource {
     }
 
     @PostMapping("/users/{userId}/tickets/{ticketId}/baggages")
-    public BaggageDTO createBaggage(final @RequestBody BaggageDTO baggageDTO,
+    public BaggageDTO createBaggage(final @Valid @RequestBody BaggageDTO baggageDTO,
                                     final @PathVariable Long userId,
                                     final @PathVariable Long ticketId) {
         return baggageService.createBaggage(baggageDTO, userId, ticketId);
     }
 
     @PutMapping("/users/{id}/baggages")
-    public BaggageDTO updateBaggage(final @RequestBody BaggageDTO baggageDTO,
+    public BaggageDTO updateBaggage(final @Valid @RequestBody BaggageDTO baggageDTO,
                                     final @PathVariable Long id){
         return baggageService.updateBaggage(baggageDTO, id);
     }

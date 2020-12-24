@@ -1,10 +1,16 @@
 package com.springbootproject.dto;
 
+import javax.validation.constraints.Min;
+
 public class BaggageDTO {
     private Long id;
     private String userFirstName;
     private String userLastName;
+
+    @Min(value = 1)
     private double weight;
+
+    @Min(value = 1)
     private double size;
 
 

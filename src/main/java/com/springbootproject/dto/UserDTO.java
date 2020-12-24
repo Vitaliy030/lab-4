@@ -1,11 +1,20 @@
 package com.springbootproject.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class UserDTO {
     private Long id;
+
+    @NotBlank
+    @Size(min = 1, max = 100)
     private String firstName;
+
+    @NotBlank
+    @Size(min = 1, max = 100)
     private String lastName;
+
     private LocalDate birth;
 
 

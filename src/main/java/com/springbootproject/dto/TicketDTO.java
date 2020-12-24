@@ -1,11 +1,18 @@
 package com.springbootproject.dto;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class TicketDTO {
     private Long id;
+
+    @NotBlank
     private String flight;
+
+    @Min(value = 1)
     private double price;
 
     private String userFirstName;
