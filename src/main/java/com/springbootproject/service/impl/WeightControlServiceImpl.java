@@ -21,16 +21,16 @@ public class WeightControlServiceImpl implements WeightControlService {
 
 
     @Autowired
-    BaggageRepository baggageRepository;
+    private BaggageRepository baggageRepository;
 
     @Autowired
-    TicketRepository ticketRepository;
+    private TicketRepository ticketRepository;
 
     @Autowired
-    BaggageToBaggageDTOMapper baggageMapper;
+    private BaggageToBaggageDTOMapper baggageMapper;
 
     @Autowired
-    TicketToTicketDTOMapper ticketMapper;
+    private TicketToTicketDTOMapper ticketMapper;
 
 
     @Override

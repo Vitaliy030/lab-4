@@ -23,7 +23,7 @@ public class TicketRepository {
     private List<Ticket> savedTickets;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
 
     public Ticket getTicketById(final Long id) {

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class SiteServiceImpl implements SiteService {
 
     @Autowired
-    StackExchangeRepository stackExchangeRepository;
+    private StackExchangeRepository stackExchangeRepository;
 
     @Autowired
-    SitesToSitesDTOMapper sitesMapper;
+    private SitesToSitesDTOMapper sitesMapper;
 
 
     @Override

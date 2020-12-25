@@ -14,7 +14,7 @@ import java.util.List;
 public class SitesToSitesDTOMapper {
 
     @Autowired
-    SiteToSiteDTOMapper siteToSiteDTOMapper;
+    private SiteToSiteDTOMapper siteToSiteDTOMapper;
 
 
     public Sites toEntity(final SitesDTO sitesDTO) {

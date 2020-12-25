@@ -23,7 +23,7 @@ public class BaggageRepository {
     private List<Baggage> savedBaggages;
 
     @Autowired
-    TicketRepository ticketRepository;
+    private TicketRepository ticketRepository;
 
 
     public Baggage getBaggageById(final Long id) {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SiteResource {
 
     @Autowired
-    SiteService siteService;
+    private SiteService siteService;
 
 
     @GetMapping("/sites")

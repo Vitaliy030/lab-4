@@ -22,7 +22,7 @@ public class TicketServiceImpl implements TicketService {
     private TicketToTicketDTOMapper ticketMapper;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
 
     @Override

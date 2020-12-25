@@ -12,7 +12,7 @@ import java.util.List;
 public class WeightControlResource {
 
     @Autowired
-    WeightControlService weightControlService;
+    private WeightControlService weightControlService;
 
     @GetMapping("/control/baggages/{id}")
     public String getBaggageControlById(final @PathVariable Long id) {
